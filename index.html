@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+    <!-- tailwindcss -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- google font -->
+     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+     <style>
+    *{
+        font-family: "Manrope", sans-serif;
+    }
+</style>
+</head>
+
+<body>
+    <!-- Header -->
+    <section class="max-w-7xl mx-auto px-4 py-8">
+
+        <div class="flex justify-between items-start mb-6">
+            <div class="flex items-center gap-4">
+                <h1 class="text-4xl font-bold text-[#002C5C]">Job Application Tracker</h1>
+            </div>
+        </div>
+
+        <!-- 3 cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+
+            <!-- card-1-->
+            <div class="bg-white border border-[#E2E8F0] rounded-2xl p-5 flex items-center gap-4">
+                <div>
+                    <p class="text-sm text-[#002C5C]">Total</p>
+                    <p class="text-2xl font-bold text-[#002C5C]">8</p>
+                </div>
+            </div>
+            
+            <!--card-2-->
+            <div class="bg-white border border-[#E2E8F0] rounded-2xl p-5 flex items-center gap-4">
+                <div>
+                    <p class="text-sm text-[#002C5C] ">Interview</p>
+                    <p class="text-2xl font-bold text-green-500">0</p>
+                </div>
+            </div>
+            
+            <!-- card-->
+            <div class="bg-white border border-[#E2E8F0] rounded-2xl p-5 flex items-center gap-4">
+                <div>
+                    <p class="text-sm text-[#002C5C]">Rejected</p>
+                    <p class="text-2xl font-bold text-red-500">0</p>
+                </div> 
+            </div>
+
+
+        </div>
+    </section>
+
+       <script src="script.js"></script>
+</body>
+</html>
