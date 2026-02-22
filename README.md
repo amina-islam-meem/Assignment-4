@@ -17,3 +17,10 @@ answer :
 2. then using innerText to add content
 3. then use appendChild(), append() etc. to insert it
 
+
+
+3. What is Event Bubbling? And how does it work?
+
+Answer :
+Event Bubbling is a process where an event starts from the target element and then moves upward to its parent elements.
+If i click on the child, event first happens on the child ,then moves to the parents and then go to the grandparent  then  its repeatedly  do the same thing when it reaches the document.
