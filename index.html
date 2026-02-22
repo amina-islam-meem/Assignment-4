@@ -9,6 +9,9 @@
     <!-- google font -->
      <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 
+     <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
      <style>
     *{
         font-family: "Manrope", sans-serif;
@@ -18,7 +21,7 @@
 
 <body>
     <!-- Header -->
-    <section class="max-w-7xl mx-auto px-4 py-8">
+    <section class="max-w-7xl mx-auto px-4 py-8  sm:px-6 py-4 sm:py-8">
 
         <div class="flex justify-between items-start mb-6">
             <div class="flex items-center gap-4">
@@ -33,7 +36,7 @@
             <div class="bg-white border border-[#E2E8F0] rounded-2xl p-5 flex items-center gap-4">
                 <div>
                     <p class="text-sm text-[#002C5C]">Total</p>
-                    <p class="text-2xl font-bold text-[#002C5C]">8</p>
+                    <p class="text-2xl font-bold text-[#002C5C]" id="totalCount">8</p>
                 </div>
             </div>
             
@@ -41,7 +44,7 @@
             <div class="bg-white border border-[#E2E8F0] rounded-2xl p-5 flex items-center gap-4">
                 <div>
                     <p class="text-sm text-[#002C5C] ">Interview</p>
-                    <p class="text-2xl font-bold text-green-500">0</p>
+                    <p class="text-2xl font-bold text-green-500" id="interviewCount">0</p>
                 </div>
             </div>
             
@@ -49,7 +52,7 @@
             <div class="bg-white border border-[#E2E8F0] rounded-2xl p-5 flex items-center gap-4">
                 <div>
                     <p class="text-sm text-[#002C5C]">Rejected</p>
-                    <p class="text-2xl font-bold text-red-500">0</p>
+                    <p class="text-2xl font-bold text-red-500" id="rejectedCount">0</p>
                 </div> 
             </div>
 
@@ -57,7 +60,33 @@
         </div>
     </section>
 
+    <section class="max-w-7xl mx-auto sm:px-6 py-4 sm:py-8">
+        <!-- Available Jobs Header with count -->
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-bold text-[#002C5C]">Available Jobs</h2>
+            <span class=" px-4 py-1.5  text-[#64748B] font-medium" id="jobCount">8 jobs</span>
+        </div>
 
+        <!-- Tabs -->
+        <div class="flex gap-3 mb-8">
+            <button onclick="window.switchTab('all')" id="allTab" class="bg-[#3B82F6] text-white rounded-2xl p-5 flex items-center gap-4 px-6 py-2 font-medium text-sm cursor-pointer">All</button>
+
+            <button onclick="window.switchTab('interview')" id="interviewTab" class="bg-white border border-[#E2E8F0] rounded-2xl p-5 flex items-center gap-4 text-[#64748B] px-6 py-2  font-medium text-sm cursor-pointer">Interview</button>
+
+            <button onclick="window.switchTab('rejected')" id="rejectedTab" class="bg-white border border-[#E2E8F0] rounded-2xl p-5 flex items-center gap-4 text-[#64748B] px-6 py-2  font-medium text-sm cursor-pointer">Rejected</button>
+        </div>
+
+        <!-- Jobs Grid -->
+        <div id="jobsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8"></div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="hidden text-center py-16 bg-white border border-[#E2E8F0] rounded-2xl  border-gray-300">
+            <img src="/image/jobs.png" class="mx-auto">
+            <h3 class="text-xl font-semibold text-[#002C5C] mb-2">No jobs available</h3>
+            <p class="text-[#64748B]">Check Back soon for opportunities</p>
+        </div>
+
+    </section>
        <script src="script.js"></script>
 </body>
 </html>
