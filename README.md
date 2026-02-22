@@ -8,3 +8,12 @@ getElementsByClassName : its used to select any element by class name,it returns
 querySelector : its use css selector and it is define as "#"(id),"."(class) also return first matching element .
 
 querySelectorAll : its return nodelists.
+
+
+
+How do you create and insert a new element into the DOM?
+answer : 
+1. create  element using document.createElement() 
+2. then using innerText to add content
+3. then use appendChild(), append() etc. to insert it
+
