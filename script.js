@@ -107,14 +107,12 @@
         } else if (status === 'interview') {
             return `
             <div class="bg-green-100 text-green-700 text-[13px] font-semibold px-4 py-1.5 rounded-full inline-flex items-center gap-1.5 border border-green-200 mb-3">
-                <i class="fa-regular fa-calendar"></i>
                 INTERVIEW
             </div>
             `;
         } else if (status === 'rejected') {
             return `
             <div class="bg-red-100 text-red-700 text-[13px] font-semibold px-4 py-1.5 rounded-full inline-flex items-center gap-1.5 border border-red-200 mb-3">
-                <i class="fa-regular fa-ban"></i>
                 REJECTED
             </div>
             `;
@@ -141,11 +139,17 @@
         
         emptyState.classList.add('hidden');
 
-        jobsGrid.innerHTML = filtered.map(job => {
+        jobsGrid.innerHTML = '';
+
+        for (let i = 0; i < filtered.length; i++)
+             {
+            const job = filtered[i];
             const badgeHtml = getBadgeHtml(job.status);
-            
-            return `
-            <div class="bg-white border border-[#E2E8F0] rounded-2xl p-6 transition-all relative">
+
+            const jobCard = document.createElement('div');
+            jobCard.className = 'bg-white border border-[#E2E8F0] rounded-2xl p-6 transition-all relative';
+           
+            jobCard.innerHTML = `
                 <!-- Delete Icon -->
                 <button onclick="window.deleteJob(${job.id})" class="absolute top-4 right-4 w-8 h-8 bg-[#F7F9FC] hover:bg-red-100 rounded-full flex items-center justify-center text-[#A0AEC0] hover:text-red-500 transition-all cursor-pointer">
                     <i class="fa-regular fa-trash-can text-sm"></i>
@@ -153,7 +157,6 @@
                 
                 <!-- Company Name -->
                 <h3 class="font-bold text-[#002C5C] text-xl mb-3">${job.company}</h3>
-                
                 <!-- Position -->
                 <h4 class="text-lg  text-[#64748B] mb-2">${job.position}</h4>
                 
@@ -165,36 +168,33 @@
                     <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
                     
                         ${job.salary}
-                    </span>
-                </div>
-                
+                    </div>
+
                 <!-- Status Badge -->
                 ${badgeHtml}
                 
                 <!-- Description -->
                 <p class="text-[#323B49] text-sm leading-relaxed mb-4">
-                    ${job.description}
-                </p>
-                
-                <!-- Action Buttons - Green text for Interview, Red text for Rejected -->
+                    ${job.description}</p>
+
+                <!-- Action Buttons -->
                <div class="flex gap-3 mt-4 pt-2">
 
                <button onclick="window.toggleStatus(${job.id}, 'interview')" 
-                  class="flex-1 bg-white text-green-600 border border-green-600 px-4 py-2 rounded-lg font-semibold text-sm flex items-center justify-center gap-1.5 cursor-pointer">
-                  <i class="fa-regular fa-calendar"></i> INTERVIEW
+                  class="flex-1 bg-white text-green-600 border border-green-600 px-4 py-2 rounded-lg font-semibold text-sm flex items-center justify-center gap-1.5 cursor-pointer">INTERVIEW
                 </button>
 
-            
-               <button onclick="window.toggleStatus(${job.id}, 'rejected')" 
-               class="flex-1 bg-white text-red-600 border border-red-600 px-4 py-2 rounded-lg font-semibold text-sm flex items-center justify-center gap-1.5 cursor-pointer">
-               <i class="fa-regular fa-ban"></i> REJECTED
-               </button>
+                <button onclick="window.toggleStatus(${job.id}, 'rejected')" 
+               class="flex-1 bg-white text-red-600 border border-red-600 px-4 py-2 rounded-lg font-semibold text-sm flex items-center justify-center gap-1.5 cursor-pointer"> REJECTED </button>
               </div>
             </div>
-        `}).join('');
+            `;
+            jobsGrid.appendChild(jobCard);
+        }
         
         updateCounts();
     }
+
 
     // Toggle 
     window.toggleStatus = function(id, status) {
