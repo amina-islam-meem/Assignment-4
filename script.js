@@ -100,7 +100,7 @@
     function getBadgeHtml(status) {
         if (status === 'all') {
             return `
-            <div class="bg-white text-[#64748B] text-[13px] font-semibold px-4 py-1.5 rounded-full inline-flex items-center gap-1.5 border border-[#E2E8F0] mb-3">
+            <div class="bg-[#E0F6FF] text-[#002C5C] text-[13px] font-semibold px-4 py-1.5 rounded-lg inline-flex items-center gap-1.5  mb-3">
                 NOT APPLIED
             </div>
             `;
@@ -178,16 +178,12 @@
                     ${job.description}</p>
 
                 <!-- Action Buttons -->
-               <div class="flex gap-3 mt-4 pt-2">
-
-               <button onclick="window.toggleStatus(${job.id}, 'interview')" 
-                  class="flex-1 bg-white text-green-600 border border-green-600 px-4 py-2 rounded-lg font-semibold text-sm flex items-center justify-center gap-1.5 cursor-pointer">INTERVIEW
-                </button>
-
-                <button onclick="window.toggleStatus(${job.id}, 'rejected')" 
-               class="flex-1 bg-white text-red-600 border border-red-600 px-4 py-2 rounded-lg font-semibold text-sm flex items-center justify-center gap-1.5 cursor-pointer"> REJECTED </button>
-              </div>
-            </div>
+                <div class="flex gap-3 justify-start mt-4 pt-2">
+                 <button onclick="window.toggleStatus(${job.id}, 'interview')" 
+                       class="bg-white text-green-600 border border-green-600 px-4 py-2 rounded-lg font-semibold text-sm cursor-pointer">INTERVIEW</button>
+                 <button onclick="window.toggleStatus(${job.id}, 'rejected')" 
+                         class="bg-white text-red-600 border border-red-600 px-4 py-2 rounded-lg font-semibold text-sm cursor-pointer">REJECTED</button>
+                </div>
             `;
             jobsGrid.appendChild(jobCard);
         }
