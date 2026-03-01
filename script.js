@@ -100,7 +100,7 @@
     function getBadgeHtml(status) {
         if (status === 'all') {
             return `
-            <div class="bg-[#E0F6FF] text-[#002C5C] text-[13px] font-semibold px-4 py-1.5 rounded-lg inline-flex items-center gap-1.5  mb-3">
+            <div class="bg-[#EEF4FF] text-[#002C5C] text-[13px] font-semibold px-4 py-1.5 rounded-lg inline-flex items-center gap-1.5  mb-3">
                 NOT APPLIED
             </div>
             `;
